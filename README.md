@@ -14,7 +14,10 @@ Just include the PopupManager object in your JavaScript file.
 <html lang="en">
 <head>
     ...
+    <!-- import the file -->
     <script src="popup.js"></script>
+    <!-- or via jsdelivr -->
+    <script src="https://cdn.jsdelivr.net/gh/princessmiku/PopupManager@1.0.0/popup.js"></script>
     ...
 </head>
 <body>
