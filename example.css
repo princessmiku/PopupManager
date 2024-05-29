@@ -1,0 +1,66 @@
+/*
+    Change it as you need it, but note that display must be none and
+    when the function is called it is set to flex.
+
+    In this case, the window that is called is centered on the screen
+    and the background is darkened slightly. To display something in
+    the center, it is recommended to use a div.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: seagreen;
+    height: 90vh;
+}
+
+button {
+    display: flex;
+    padding: 2px 5px;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+}
+
+.button-list {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pm-popup {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+.pm-popup-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: darkslategray;
+    border-radius: 10px;
+}

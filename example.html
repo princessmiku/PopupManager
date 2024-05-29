@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Popup</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: seagreen;
+            height: 90vh;
+        }
+
+        button {
+            display: flex;
+            padding: 2px 5px;
+            background-color: darkgreen;
+            border: none;
+            border-radius: 5px;
+            font-size: large;
+            cursor: pointer;
+        }
+
+        .button-list {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pm-popup {
+            position: fixed;
+
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            background-color: rgba(0,0,0,0.7);
+        }
+
+
+        .pm-popup-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: darkslategray;
+            border-radius: 10px;
+        }
+
+    </style>
+    <script src="popup.js"></script>
+</head>
+<body>
+
+    <div class="button-list">
+        <button onclick="PopupManager.open('example-popup')">OPEN</button>
+        <button onclick="PopupManager.open('example-popup-with-log')">OPEN LOG POPUP</button>
+    </div>
+
+    <div class="pm-popup" id="example-popup">
+        <div class="pm-popup-box">
+            <h1>Hello World</h1>
+            <div class="button-list">
+                <button onclick="PopupManager.submit('example-popup')">Submit</button>
+                <button onclick="PopupManager.submitAndClose('example-popup')">Submit & Close</button>
+                <button onclick="PopupManager.closeAndOpen('example-popup', 'example-popup-with-log')">Close & Open log popup</button>
+                <button onclick="PopupManager.submitCloseAndOpen('example-popup', 'example-popup-with-log')">Submit & Close & Open log popup</button>
+                <button onclick="PopupManager.close('example-popup')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pm-popup" id="example-popup-with-log">
+        <div class="pm-popup-box">
+            <h1>Hello World but with Log</h1>
+            <div class="button-list">
+                <button onclick="PopupManager.submit('example-popup-with-log')">Submit</button>
+                <button onclick="PopupManager.submitAndClose('example-popup-with-log')">Submit & Close</button>
+                <button onclick="PopupManager.close('example-popup-with-log')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Simple Popup open */
+        PopupManager.add(
+            'example-popup'
+        )
+        /* Simple Popup open but with functions */
+        PopupManager.add(
+            'example-popup-with-log',
+            () => {console.log('Open Popup')},
+            () => {console.log('Submit Popup')},
+            () => {console.log('Close Popup')},
+        )
+    </script>
+
+</body>
+</html>
